@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   monitor_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdrahm <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hdrahm <hdrahm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 21:57:40 by hdrahm            #+#    #+#             */
-/*   Updated: 2024/07/26 21:57:42 by hdrahm           ###   ########.fr       */
+/*   Updated: 2024/07/27 17:02:15 by hdrahm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	check_death(t_philosoper *philos, int i, long time_now)
+int	check_death(t_philosoper *philos, int i, size_t time_now)
 {
 	if (time_now - philos[i].last_meal > philos->time_to_die)
 	{
@@ -53,10 +53,10 @@ int	check_meals_eaten(t_philosoper *philos, int i)
 	return (0);
 }
 
-long	get_time_inmill(long old_time_sec, long old_time_usec)
+size_t	get_time_inmill(long old_time_sec, long old_time_usec)
 {
 	struct timeval	now;
-	long			time_now;
+	size_t			time_now;
 
 	gettimeofday(&now, NULL);
 	time_now = (now.tv_sec - old_time_sec) * 1000 + (now.tv_usec

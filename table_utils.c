@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   table_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdrahm <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hdrahm <hdrahm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 21:58:17 by hdrahm            #+#    #+#             */
-/*   Updated: 2024/07/26 21:58:20 by hdrahm           ###   ########.fr       */
+/*   Updated: 2024/07/27 17:14:57 by hdrahm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	check_flag(t_philosoper *philos)
 
 int	check_flag_unlock_two(t_philosoper *philos)
 {
-	long	time_now;
+	size_t	time_now;
 
 	if (philos->philo_id % 2 != 0)
 		pthread_mutex_lock(philos->right_fork);
@@ -58,7 +58,7 @@ int	check_flag_unlock_two(t_philosoper *philos)
 
 int	check_flag_unlock_one_and_two(t_philosoper *philos)
 {
-	long	time_now;
+	size_t	time_now;
 
 	if (check_flag(philos) == 1)
 		return (1);
@@ -86,10 +86,10 @@ int	check_flag_unlock_one_and_two(t_philosoper *philos)
 
 int	sleep_and_check(t_philosoper *philos, int j, size_t time)
 {
-	int	i;
+	size_t	i;
 
-	i = -1;
-	while (++i < time / 10000)
+	i = 0;
+	while (i++ < time / 10000)
 	{
 		pthread_mutex_lock(philos->stop_mutex);
 		if (philos->shared->stop_flag)
@@ -115,7 +115,7 @@ int	sleep_and_check(t_philosoper *philos, int j, size_t time)
 
 int	sleep_and_think(t_philosoper *philos)
 {
-	long	time_now;
+	size_t	time_now;
 
 	time_now = get_time_inmill(philos->time_sec, philos->time_usec);
 	if (check_flag(philos) == 1)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdrahm <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hdrahm <hdrahm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 21:57:53 by hdrahm            #+#    #+#             */
-/*   Updated: 2024/07/26 22:22:44 by hdrahm           ###   ########.fr       */
+/*   Updated: 2024/07/27 00:32:36 by hdrahm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_monitor(void *philo)
 {
 	t_philosoper	*philos;
 	int				i;
-	long			time_now;
+	size_t			time_now;
 
 	philos = (t_philosoper *)philo;
 	while (1)
@@ -74,6 +74,7 @@ int	create_join_monitor(t_philosoper *philosophers)
 		return (1);
 	if (pthread_join(monitor, NULL) != 0)
 		return (1);
+	return (0);
 }
 
 int	ft_create_threads(t_times data, pthread_mutex_t stop, t_shared shared,

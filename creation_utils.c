@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   creation_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdrahm <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hdrahm <hdrahm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 21:56:43 by hdrahm            #+#    #+#             */
-/*   Updated: 2024/07/26 21:56:47 by hdrahm           ###   ########.fr       */
+/*   Updated: 2024/07/27 00:09:07 by hdrahm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,10 @@ int	allocate_for_structs(t_hold *hold, t_times data, pthread_mutex_t *stop)
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	*meals_lock;
 
+	thread = NULL;
+	philosophers = NULL;
+	forks = NULL;
+	meals_lock = NULL;
 	hold->philosophers = philosophers;
 	hold->forks = forks;
 	hold->thread = thread;

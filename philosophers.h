@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hdrahm <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hdrahm <hdrahm@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/26 21:58:05 by hdrahm            #+#    #+#             */
-/*   Updated: 2024/07/26 21:58:07 by hdrahm           ###   ########.fr       */
+/*   Updated: 2024/07/27 17:02:39 by hdrahm           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ long				ft_atoi(char *str);
 int					check_flag_unlock_one_and_two(t_philosoper *philos);
 int					sleep_and_check(t_philosoper *philos, int j, size_t time);
 int					sleep_and_think(t_philosoper *philos);
-long				get_time_inmill(long old_time_sec, long old_time_usec);
+size_t				get_time_inmill(long old_time_sec, long old_time_usec);
 int					check_flag(t_philosoper *philos);
 int					check_flag_unlock_two(t_philosoper *philos);
-int					check_death(t_philosoper *philos, int i, long time_now);
+int					check_death(t_philosoper *philos, int i, size_t time_now);
 int					check_meals_eaten(t_philosoper *philos, int i);
 int					allocate_for_structs(t_hold *hold, t_times data,
 						pthread_mutex_t *stop);
